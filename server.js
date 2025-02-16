@@ -17,12 +17,12 @@ app.get('/proxy', (req, res) => {
   request(url).pipe(res);
 });
 
-// Servir arquivos estáticos (frontend)
-app.use(express.static(path.join(__dirname, 'public')));
+// Servir arquivos estáticos diretamente da raiz
+app.use(express.static(__dirname));
 
 // Rota padrão para servir o index.html
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 // Porta do servidor

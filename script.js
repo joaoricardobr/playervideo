@@ -68,8 +68,8 @@ function renderItems(listId, items) {
 async function parseM3U(url) {
   try {
     console.log("Buscando URL M3U:", url);
-    const proxyUrl = "https://cors-anywhere.herokuapp.com/";
-    const response = await fetch(proxyUrl + url);
+    const proxyUrl = "https://seu-proxy.onrender.com/proxy?url=";
+    const response = await fetch(proxyUrl + encodeURIComponent(url));
     if (!response.ok) throw new Error(`Erro ao carregar M3U: ${response.status}`);
     const text = await response.text();
     console.log("Conteúdo do M3U:", text);
@@ -170,3 +170,10 @@ document.getElementById("xtream-form").addEventListener("submit", (e) => {
   } else {
     alert("Por favor, insira todas as credenciais Xtream.");
   }
+});
+
+// Mostra a interface principal
+function showMainScreen() {
+  document.getElementById("home-screen").style.display = "none";
+  document.getElementById("main-screen").style.display = "block";
+}
