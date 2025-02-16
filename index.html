@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IPTV Player</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Tela Inicial -->
+  <div id="home-screen" class="container">
+    <h1>Bem-vindo ao IPTV Player</h1>
+
+    <!-- Seção M3U -->
+    <div class="section">
+      <h2>Adicionar Lista M3U</h2>
+      <form id="m3u-form">
+        <input type="text" id="m3u-url" placeholder="Cole sua URL M3U aqui">
+        <button type="submit">Adicionar M3U</button>
+      </form>
+    </div>
+
+    <!-- Seção Xtream API -->
+    <div class="section">
+      <h2>Adicionar Xtream API</h2>
+      <form id="xtream-form">
+        <input type="text" id="xtream-server" placeholder="Servidor Xtream (https://servidor.xtream.com)">
+        <input type="text" id="xtream-username" placeholder="Usuário Xtream">
+        <input type="password" id="xtream-password" placeholder="Senha Xtream">
+        <button type="submit">Adicionar Xtream</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Interface Principal -->
+  <div id="main-screen" class="container" style="display: none;">
+    <h1>IPTV Player</h1>
+
+    <!-- Abas -->
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="channels">Canais</button>
+      <button class="tab-btn" data-tab="movies">Filmes</button>
+      <button class="tab-btn" data-tab="series">Séries</button>
+      <button class="tab-btn" data-tab="epg">EPG</button>
+    </div>
+
+    <!-- Conteúdo das Abas -->
+    <div id="channels" class="content active">
+      <h2>Canais</h2>
+      <div class="item-list" id="channels-list"></div>
+    </div>
+    <div id="movies" class="content">
+      <h2>Filmes</h2>
+      <div class="item-list" id="movies-list"></div>
+    </div>
+    <div id="series" class="content">
+      <h2>Séries</h2>
+      <div class="item-list" id="series-list"></div>
+    </div>
+    <div id="epg" class="content">
+      <h2>EPG (Guia de Programação)</h2>
+      <div class="item-list" id="epg-list"></div>
+    </div>
+
+    <!-- Player de Vídeo -->
+    <div class="video-player">
+      <video id="video-player" controls width="640" height="360"></video>
+    </div>
+  </div>
+
+  <!-- Bibliotecas Externas -->
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <script src="script.js"></script>
+</body>
+</html>
